@@ -1,0 +1,11 @@
+type Thread {
+    id: ID
+    title: String
+    url: String
+    siteName: String
+    createdAt: String
+}
+
+type Query {
+    getNewThreadList(search:String = null, next: String = null): [Thread]
+}

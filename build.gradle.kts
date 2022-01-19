@@ -44,10 +44,10 @@ dependencies {
 
 	compileOnly("org.projectlombok:lombok")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
-	runtimeOnly("mysql:mysql-connector-java")
+	implementation("mysql:mysql-connector-java")
 	implementation("org.slf4j:slf4j-api")
 	annotationProcessor("org.projectlombok:lombok")
-	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+	implementation("org.springframework.boot:spring-boot-starter-tomcat")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.security:spring-security-test")
 }
