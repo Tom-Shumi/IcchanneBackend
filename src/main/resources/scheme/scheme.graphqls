@@ -3,7 +3,7 @@ type Thread {
     title: String
     url: String
     siteName: String
-    createdAt: String
+    publishedDate: String
 }
 
 type Query {
