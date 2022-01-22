@@ -7,5 +7,6 @@ data class Thread (
     val title: String,
     val url: String,
     val publishedDate: LocalDateTime,
+    val category: String,
     val siteName: String
 )
