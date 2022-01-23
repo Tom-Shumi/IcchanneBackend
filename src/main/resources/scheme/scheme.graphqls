@@ -8,5 +8,5 @@ type Thread {
 }
 
 type Query {
-    getNewThreadList(search:String = null, next: String = null): [Thread]
+    getNewThreadList(search:String = null, category:String = null, next: String = null): [Thread]
 }

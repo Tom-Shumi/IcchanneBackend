@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component
 @Component
 class ThreadQueryResolver(private val threadService: ThreadService): GraphQLQueryResolver {
 
-    fun getNewThreadList(search: String?, next: String?): List<Thread> {
-        return threadService.getNewThreadList(search, next)
+    fun getNewThreadList(search: String?, category: String?, next: String?): List<Thread> {
+        return threadService.getNewThreadList(search, category, next)
     }
 }

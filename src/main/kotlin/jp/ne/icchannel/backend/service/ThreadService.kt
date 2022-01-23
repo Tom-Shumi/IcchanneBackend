@@ -17,7 +17,7 @@ class ThreadService(private var elasticsearchService: ElasticsearchService,
     @Value("\${data.limit}")
     var limit: Int = 0
 
-    fun getNewThreadList(search: String?, next: String?): List<Thread> {
+    fun getNewThreadList(search: String?, category: String?, next: String?): List<Thread> {
         val searchSourceBuilder = SearchSourceBuilder()
         searchSourceBuilder.size(limit)
         searchSourceBuilder.sort(FieldSortBuilder("publishedDate").order(SortOrder.DESC))
