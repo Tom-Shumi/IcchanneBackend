@@ -21,6 +21,7 @@ class ThreadService(private var elasticsearchService: ElasticsearchService,
         val searchSourceBuilder = SearchSourceBuilder()
         searchSourceBuilder.size(limit)
         searchSourceBuilder.sort(FieldSortBuilder("publishedDate").order(SortOrder.DESC))
+                           .sort(FieldSortBuilder("title").order(SortOrder.ASC))
         val request = SearchRequest(ES_INDEX_THREAD).source(searchSourceBuilder)
         val response = elasticsearchService.search(request)
         val searchHit = response.hits.hits
