@@ -4,6 +4,9 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import jp.ne.icchannel.backend.Constants.Companion.ES_INDEX_THREAD
 import jp.ne.icchannel.backend.domain.Thread
 import org.elasticsearch.action.search.SearchRequest
+import org.elasticsearch.index.query.BoolQueryBuilder
+import org.elasticsearch.index.query.QueryBuilder
+import org.elasticsearch.index.query.QueryBuilders
 import org.elasticsearch.search.builder.SearchSourceBuilder
 import org.elasticsearch.search.sort.FieldSortBuilder
 import org.elasticsearch.search.sort.SortOrder
@@ -20,8 +23,12 @@ class ThreadService(private var elasticsearchService: ElasticsearchService,
     fun getNewThreadList(search: String?, category: String?, next: String?): List<Thread> {
         val searchSourceBuilder = SearchSourceBuilder()
         searchSourceBuilder.size(limit)
+        if (next is String) {
+            val boolQueryBuilder = BoolQueryBuilder()
+            boolQueryBuilder.filter(QueryBuilders.rangeQuery("publishedDate").lt(next))
+            searchSourceBuilder.query(boolQueryBuilder)
+        }
         searchSourceBuilder.sort(FieldSortBuilder("publishedDate").order(SortOrder.DESC))
-                           .sort(FieldSortBuilder("title").order(SortOrder.ASC))
         val request = SearchRequest(ES_INDEX_THREAD).source(searchSourceBuilder)
         val response = elasticsearchService.search(request)
         val searchHit = response.hits.hits
