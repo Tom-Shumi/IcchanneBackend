@@ -1,7 +1,6 @@
 HELP.md
 .gradle
 build/*
-!gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
 .DS_Store
@@ -44,3 +43,4 @@ out/
 
 /docker/data/
 /logs
+!gradle/wrapper/gradle-wrapper.jar
