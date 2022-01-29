@@ -24,13 +24,13 @@ repositories {
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-redis")
-	implementation("org.springframework.boot:spring-boot-starter-jdbc")
+//	implementation("org.springframework.boot:spring-boot-starter-jdbc")
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.1")
+//	implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.1")
 	implementation("org.springframework.session:spring-session-data-redis")
 	implementation ("org.springframework.boot:spring-boot-starter-aop")
 	implementation("org.springframework.session:spring-session-data-redis")
@@ -44,7 +44,7 @@ dependencies {
 
 	compileOnly("org.projectlombok:lombok")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
-	implementation("mysql:mysql-connector-java")
+//	implementation("mysql:mysql-connector-java")
 	implementation("org.slf4j:slf4j-api")
 	annotationProcessor("org.projectlombok:lombok")
 	implementation("org.springframework.boot:spring-boot-starter-tomcat")
