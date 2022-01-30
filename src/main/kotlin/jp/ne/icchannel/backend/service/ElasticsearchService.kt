@@ -15,8 +15,9 @@ import org.springframework.stereotype.Service
 import java.lang.Exception
 
 @Service
-class ElasticsearchService (private var restHighLevelClient: RestHighLevelClient,
-                            private val elasticsearchClientConfig: ElasticsearchConfig) {
+class ElasticsearchService (private val elasticsearchClientConfig: ElasticsearchConfig) {
+
+    private var restHighLevelClient = elasticsearchClientConfig.client()
 
     private fun setClient(restHighLevelClient: RestHighLevelClient) {
         this.restHighLevelClient = restHighLevelClient
